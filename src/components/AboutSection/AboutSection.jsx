@@ -36,7 +36,6 @@ const AboutSection = () => (
           {/* Updated list for mobile and desktop */}
           <ul className="text-lg sm:text-xl list-disc pl-6 mb-8 space-y-3">
             <li>Precision & quality with advanced CNC technology.</li>
-            <li>Serving aerospace, automotive, medical, and more.</li>
             <li>Fast and reliable turnaround times.</li>
             <li>Custom solutions for every project.</li>
           </ul>
