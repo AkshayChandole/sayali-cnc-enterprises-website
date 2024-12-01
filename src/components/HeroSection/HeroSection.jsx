@@ -1,3 +1,5 @@
+const COMPANY_NAME = import.meta.env.VITE_COMPANY_NAME;
+
 const HeroSection = () => (
     <section
       id="home"
@@ -18,7 +20,7 @@ const HeroSection = () => (
       <div className="relative z-10 text-center">
         {/* Heading with a bold and vibrant color */}
         <h1 className="text-5xl sm:text-6xl md:text-7xl font-extrabold mb-6 text-red-700 text-shadow-2xl animate__animated animate__fadeIn animate__delay-1s">
-          SAYALI CNC Enterprises
+          {COMPANY_NAME}
         </h1>
   
         {/* Subheading with a brighter and contrasting color */}

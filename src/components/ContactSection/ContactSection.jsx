@@ -4,11 +4,14 @@ import { toast } from "react-toastify";
 import { useState } from "react"; // Added useState to manage spinner state
 import { FaSpinner } from "react-icons/fa"; // Import spinner icon
 
-const emailJsPublicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
-const emailJsServiceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
-const emailJsTemplateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
-const GMapLocationLink = "https://maps.app.goo.gl/CawfC4xpkFqUzs3A7";
-const GMapEmbedLink = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7561.632916619648!2d73.83860169498206!3d18.627323429948195!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c7805617911d%3A0x7f6f9fbf52798ada!2sShantinagar%2C%20Bhosari%2C%20Pimpri-Chinchwad%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1733055948658!5m2!1sen!2sin"
+const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+const GMAP_LOCATION_LINK = import.meta.env.VITE_GMAP_LOCATION_LINK;
+const GMAP_EMBED_LINK = import.meta.env.VITE_GMAP_EMBED_LINK;
+const EMAIL_ID=import.meta.env.VITE_COMPANY_EMAIL_ID;
+const ADDRESS=import.meta.env.VITE_COMPANY_ADDRESS;
+const FOUNDER_MOBILE_NUMBER=import.meta.env.VITE_FOUNDER_MOBILE_NUMBER;
 
 const ContactSection = () => {
   const [isSubmitting, setIsSubmitting] = useState(false); // Track form submission state
@@ -30,12 +33,12 @@ const ContactSection = () => {
 
     try {
       // Initialize EmailJS with correct public and private keys
-      emailjs.init(emailJsPublicKey); // Public Key
+      emailjs.init(EMAILJS_PUBLIC_KEY); // Public Key
 
       // Configure EmailJS service
       const result = await emailjs.send(
-        emailJsServiceId, 
-        emailJsTemplateId,
+        EMAILJS_SERVICE_ID, 
+        EMAILJS_TEMPLATE_ID,
         {
           name,
           mobile,
@@ -45,7 +48,7 @@ const ContactSection = () => {
       );
 
       if (result.status === 200) {
-        toast.success("Email sent successfully!"); // Show a success toast
+        toast.success("Thanks for reaching out! We've received your message and will respond shortly."); // Show a success toast
       }
     } catch (error) {
       console.error("Failed to send email", error);
@@ -138,28 +141,28 @@ const ContactSection = () => {
           <h3 className="text-lg text-red-700 font-bold">Get in touch</h3>
           <p className="text-gray-700 flex items-center hover:text-red-600 transition">
             <FaPhoneAlt className="text-red-600 mr-2" />
-            <a href="tel:+918806032122" className="no-underline">
-              +91 88060 32122
+            <a href={`tel:${FOUNDER_MOBILE_NUMBER.replaceAll(" ","")}`} className="no-underline">
+              {FOUNDER_MOBILE_NUMBER}
             </a>
           </p>
           <p className="text-gray-700 flex items-center hover:text-red-600 transition">
             <FaEnvelope className="text-red-600 mr-2" />
             <a
-              href="mailto:sayali-cnc-enterprises@gmail.com"
+              href={`mailto:${EMAIL_ID}`}
               className="no-underline"
             >
-              sayali-cnc-enterprises@gmail.com
+              {EMAIL_ID}
             </a>
           </p>
           <p className="text-gray-700 flex items-center hover:text-red-600 transition">
             <FaMapMarkerAlt className="text-red-600 mr-2" />
             <a
-              href={GMapLocationLink}
+              href={GMAP_LOCATION_LINK}
               target="_blank"
               rel="noopener noreferrer"
               className="no-underline"
             >
-              Shantinagar, Bhosari, Pimpri-Chinchwad, Maharashtra
+              {ADDRESS}
             </a>
           </p>
           <h3 className="text-lg text-red-700 font-bold mt-4">Hours</h3>
@@ -176,7 +179,7 @@ const ContactSection = () => {
           {/* Embedded Google Map */}
           <div className="mt-6">
             <iframe
-              src={GMapEmbedLink}
+              src={GMAP_EMBED_LINK}
               width="100%"
               height="300"
               allowFullScreen=""

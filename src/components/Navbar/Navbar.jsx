@@ -1,4 +1,5 @@
 import { useState } from "react";
+const COMPANY_NAME = import.meta.env.VITE_COMPANY_NAME;
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -9,7 +10,7 @@ const Navbar = () => {
 
   return (
     <nav className="bg-red-700 p-4 text-white flex justify-between items-center relative">
-      <div className="text-xl font-bold text-white">SAYALI CNC Enterprises</div>
+      <div className="text-xl font-bold text-white">{COMPANY_NAME}</div>
 
       {/* Navbar Links for larger screens (visible on md and up) */}
       <div className="space-x-4 hidden md:flex">
