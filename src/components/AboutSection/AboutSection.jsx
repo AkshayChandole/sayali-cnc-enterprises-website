@@ -11,7 +11,7 @@ const AboutSection = () => (
           </h2>
           <br />
           <p className="text-lg sm:text-xl mb-6">
-            Welcome to <b className="text-red-700 font-bold ">SAYALI CNC Enterprises, Chakan, Pune </b> founded by{" "}
+            Welcome to <b className="text-red-700 font-bold ">SAYALI CNC Enterprises </b> at Shantinagar, Bhosari, Pimpri-Chinchwad, Maharashtra founded by{" "}
             <a
               href="https://www.linkedin.com/in/sanket-papat-9b93a6323/"
               target="_blank"

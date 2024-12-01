@@ -3,7 +3,7 @@ const Footer = () => (
       <div className="max-w-screen-xl mx-auto">
         {/* First Paragraph: Main Footer Content */}
         <p className="text-2xl font-semibold mb-4">
-          &copy; 2024 <span className="font-bold text-red-700">SAYALI CNC Enterprises</span>. All rights reserved.
+          &copy; {new Date().getFullYear()} <span className="font-bold text-red-700">SAYALI CNC Enterprises</span>. All rights reserved.
         </p>
   
         {/* Second Paragraph: Credit to Creator */}
